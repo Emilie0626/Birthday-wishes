@@ -22,7 +22,7 @@
             class="wish-entry"
           >
             <p class="message">{{ wish.message }}</p>
-            <p v-if="wish.name" class="name">—— {{ wish.name }}</p>
+            <p v-if="wish.name && wish.name !== '匿名朋友'" class="name">—— {{ wish.name }}</p>
 
             <!-- 分隔线（最后一条不显示） -->
             <div v-if="i < visible.length - 1" class="divider">
