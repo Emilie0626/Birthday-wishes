@@ -22,21 +22,21 @@
       </div>
     </transition>
 
-    <!-- Floating write button -->
-    <button class="write-btn" @click="showForm = true">
-      写下祝福 🌻
-    </button>
-
-    <!-- Poster button (bottom right) -->
-    <transition name="fade">
-      <button
-        v-if="visibleWishCount > 0"
-        class="poster-btn"
-        @click="showPoster = true"
-      >
-        展开长卷 📜
+    <!-- Bottom action bar -->
+    <div class="bottom-actions">
+      <button class="write-btn" @click="showForm = true">
+        写下祝福 🌻
       </button>
-    </transition>
+      <transition name="fade">
+        <button
+          v-if="visibleWishCount > 0"
+          class="poster-btn"
+          @click="showPoster = true"
+        >
+          展开长卷 📜
+        </button>
+      </transition>
+    </div>
 
     <!-- Overlays -->
     <WishPoster
@@ -141,31 +141,44 @@ function openWish(wish) {
   z-index: 10;
 }
 
-/* Floating write button */
-.write-btn {
+/* Bottom action bar — keeps both buttons side-by-side and centred */
+.bottom-actions {
   position: fixed;
   bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 50;
+  padding: 0 16px;
+  pointer-events: none; /* let clicks pass through the gap */
+}
+.bottom-actions > * {
+  pointer-events: auto;
+}
+
+/* Write button */
+.write-btn {
   background: linear-gradient(135deg, #f5c518, #e8a800);
   color: #5c3a00;
   border: none;
   border-radius: 50px;
-  padding: 13px 30px;
+  padding: 13px 28px;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 20px rgba(245,197,24,0.55);
-  z-index: 50;
   white-space: nowrap;
   font-family: inherit;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .write-btn:hover {
-  transform: translateX(-50%) translateY(-3px);
+  transform: translateY(-3px);
   box-shadow: 0 8px 28px rgba(245,197,24,0.65);
 }
-.write-btn:active { transform: translateX(-50%) translateY(0); }
+.write-btn:active { transform: translateY(0); }
 
 /* Wish count pill */
 .count-pill {
@@ -187,18 +200,14 @@ function openWish(wish) {
 
 /* Poster button */
 .poster-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 20px;
   background: rgba(255, 253, 240, 0.92);
   color: #5c3a00;
   border: 2px solid #e8a800;
   border-radius: 50px;
-  padding: 10px 18px;
+  padding: 11px 20px;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  z-index: 50;
   white-space: nowrap;
   font-family: inherit;
   backdrop-filter: blur(6px);
