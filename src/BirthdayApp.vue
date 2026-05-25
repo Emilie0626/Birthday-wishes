@@ -27,7 +27,25 @@
       写下祝福 🌻
     </button>
 
+    <!-- Poster button (bottom right) -->
+    <transition name="fade">
+      <button
+        v-if="visibleWishCount > 0"
+        class="poster-btn"
+        @click="showPoster = true"
+      >
+        展开长卷 📜
+      </button>
+    </transition>
+
     <!-- Overlays -->
+    <WishPoster
+      v-if="showPoster"
+      :wishes="wishes"
+      :is-revealed="isRevealed"
+      @close="showPoster = false"
+    />
+
     <WishForm
       v-if="showForm"
       @close="showForm = false"
@@ -61,16 +79,21 @@ import WishForm from './components/WishForm.vue'
 import SeedAnimation from './components/SeedAnimation.vue'
 import ThankYouCard from './components/ThankYouCard.vue'
 import WishCard from './components/WishCard.vue'
+import WishPoster from './components/WishPoster.vue'
 
 const wishes = ref([])
 const showForm = ref(false)
 const showSeed = ref(false)
 const showThankYou = ref(false)
+const showPoster = ref(false)
 const activeWish = ref(null)
 const fieldRef = ref(null)
 
 const isRevealed = computed(() => new Date() >= REVEAL_TIME)
 const canViewWish = (w) => isRevealed.value || w.isPublic
+const visibleWishCount = computed(() =>
+  wishes.value.filter(w => isRevealed.value || w.isPublic).length
+)
 
 onMounted(() => {
   wishes.value = getWishes()
@@ -161,6 +184,32 @@ function openWish(wish) {
   pointer-events: none;
   text-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
+
+/* Poster button */
+.poster-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  background: rgba(255, 253, 240, 0.92);
+  color: #5c3a00;
+  border: 2px solid #e8a800;
+  border-radius: 50px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 50;
+  white-space: nowrap;
+  font-family: inherit;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 12px rgba(232, 168, 0, 0.3);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.poster-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(232, 168, 0, 0.45);
+}
+.poster-btn:active { transform: translateY(0); }
 
 /* Transitions */
 .banner-enter-active, .banner-leave-active { transition: all 0.4s ease; }

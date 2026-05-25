@@ -1,4 +1,4 @@
-export const REVEAL_TIME = new Date('2026-06-26T18:26:00+08:00')
+export const REVEAL_TIME = new Date('2026-06-26T06:26:00+08:00')
 
 export const thankYouImages = [
   {
