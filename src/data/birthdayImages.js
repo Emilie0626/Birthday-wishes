@@ -40,5 +40,60 @@ export const thankYouImages = [
     src: '/images/cards/8.jpg',
     date: '2024年5月12日',
     caption: '超级内卷的植物...'
+  },
+  {
+    src: '/images/cards/9.jpg',
+    date: '2024年5月26日',
+    caption: '那时的我，还在为了目标狠狠努力。'
+  },
+  {
+    src: '/images/cards/10.jpg',
+    date: '2024年6月2日',
+    caption: '雨点落在地面，它唱着轻快的歌。'
+  },
+  {
+    src: '/images/cards/11.jpg',
+    date: '2024年6月5日',
+    caption: '数学老师写在黑板上鼓励我们的话——"尽吾力而無悔"。'
+  },
+  {
+    src: '/images/cards/12.jpg',
+    date: '2024年6月9日',
+    caption: '许过的愿望 都一路生花！\n那天拿着父母买的手捧花束，突然很想和电源车合影。我做到了，我尽力了！'
+  },
+  {
+    src: '/images/cards/13.jpg',
+    date: '2024年6月24日',
+    caption: '焦虑不可怕，所有的情绪都该被接纳。\n我记得出分后第二天就是我的生日，在那之前我处于极度焦虑之中。'
+  },
+  {
+    src: '/images/cards/14.jpg',
+    date: '2024年6月26日',
+    caption: '那就祝我生日快乐吧！\n（和喜欢的角色同一天生日！）'
+  },
+  {
+    src: '/images/cards/15.jpg',
+    date: '2024年7月12日',
+    caption: '和认识很久的好朋友见了面，看了一场电影。我永远会记得6.5那天他写给我的高考加油信。'
+  },
+  {
+    src: '/images/cards/16.jpg',
+    date: '2024年8月1日',
+    caption: '如果你也喜欢武汉。'
+  },
+  {
+    src: '/images/cards/17.jpg',
+    date: '2024年8月6日',
+    caption: '我们风雨兼程 绝不空手而归。'
+  },
+  {
+    src: '/images/cards/18.jpg',
+    date: '2024年9月11日',
+    caption: '第一次看话剧《文圣常》，海鸥剧社实在太棒了！'
+  },
+  {
+    src: '/images/cards/19.jpg',
+    date: '2024年9月15日',
+    caption: '哇第一次去小麦岛！很漂亮的大海和蓝天！'
   }
 ]

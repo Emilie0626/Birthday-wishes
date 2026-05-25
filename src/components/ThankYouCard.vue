@@ -114,19 +114,24 @@ function onImgError(e) {
 /* ── Photo ── */
 .photo-wrap {
   width: 100%;
-  height: 240px;
+  min-height: 200px;
+  max-height: 340px;
   overflow: hidden;
-  background: #111;
+  background: #fffdf0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .photo {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 340px;
+  object-fit: contain;
   display: block;
   transition: transform 0.4s ease;
 }
 .photo:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 /* ── Body ── */
@@ -142,6 +147,7 @@ function onImgError(e) {
   margin: 0 0 10px;
   font-style: italic;
   letter-spacing: 0.3px;
+  white-space: pre-line;
 }
 
 .thanks {
