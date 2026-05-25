@@ -95,14 +95,18 @@ const visibleWishCount = computed(() =>
   wishes.value.filter(w => isRevealed.value || w.isPublic).length
 )
 
-onMounted(() => {
-  wishes.value = getWishes()
+onMounted(async () => {
+  wishes.value = await getWishes()
 })
 
-function onSubmit(data) {
+async function onSubmit(data) {
   showForm.value = false
-  addWish(data)
-  wishes.value = getWishes()
+  try {
+    await addWish(data)
+    wishes.value = await getWishes()
+  } catch (e) {
+    console.error('Failed to save wish:', e)
+  }
   setTimeout(() => {
     fieldRef.value?.goToLastPage()
     showSeed.value = true
