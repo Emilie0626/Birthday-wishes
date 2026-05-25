@@ -14,12 +14,9 @@
     <!-- Empty slot: nothing shown -->
     <template v-if="!wish"></template>
 
-    <!-- Locked wish: bud (花苞) -->
+    <!-- Locked wish: bud only, sits at ground level (no stem/leaves) -->
     <template v-else-if="!canView">
-      <div class="stem"></div>
-      <div class="leaf leaf-l"></div>
-      <div class="leaf leaf-r"></div>
-      <div class="bud" :style="{ bottom: `calc(52px + var(--height-var))` }">
+      <div class="bud" style="bottom: 0">
         <div class="bud-body"></div>
         <div class="bud-tip"></div>
         <span class="spark s1">✦</span>
@@ -75,7 +72,7 @@ const headStyle = computed(() => ({
 const tooltipText = computed(() => {
   if (!props.wish) return ''
   if (props.canView) return `点击查看 ${props.wish.name} 的祝福`
-  return '6月26日 18:26 解锁'
+  return '6月26日 6:26 解锁'
 })
 
 function handleClick() {
