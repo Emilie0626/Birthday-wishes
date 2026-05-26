@@ -77,7 +77,7 @@
 
         <!-- Right-side vertical navigation -->
         <div class="nav" v-if="totalPages > 1">
-          <button class="arrow-btn" :disabled="currentPage === 0" @click="go(-1)">∧</button>
+          <button class="arrow-btn" :disabled="currentPage === 0" @click="go(-1)">‹</button>
           <div class="page-dots">
             <span
               v-for="p in totalPages"
@@ -87,7 +87,7 @@
               @click="goTo(p - 1)"
             ></span>
           </div>
-          <button class="arrow-btn" :disabled="currentPage >= totalPages - 1" @click="go(1)">∨</button>
+          <button class="arrow-btn" :disabled="currentPage >= totalPages - 1" @click="go(1)">›</button>
         </div>
       </div>
     </div>
@@ -312,42 +312,42 @@ function clickRabbit(id) {
 /* ═══════════════ RABBIT ═══════════════ */
 .rabbit {
   position: absolute;
-  bottom: 14px;
-  width: 26px;
-  height: 20px;
+  bottom: 13px;
+  width: 36px;
+  height: 28px;
   transform-origin: center bottom;
   cursor: pointer;
 }
 
 .r-body {
   position: absolute;
-  width: 20px; height: 14px;
+  width: 27px; height: 19px;
   background: currentColor;
   border-radius: 45% 50% 50% 45%;
-  bottom: 2px; left: 2px;
+  bottom: 3px; left: 3px;
 }
 .r-head {
   position: absolute;
-  width: 13px; height: 12px;
+  width: 17px; height: 16px;
   background: currentColor;
   border-radius: 50% 45% 45% 50%;
-  right: 0; bottom: 7px;
+  right: 0; bottom: 9px;
 }
 .r-ear-l, .r-ear-r {
   position: absolute;
-  width: 4px; height: 10px;
+  width: 5px; height: 13px;
   background: currentColor;
   border-radius: 50%;
-  top: -9px;
+  top: -12px;
 }
-.r-ear-l { left: 2px; }
-.r-ear-r { left: 7px; }
+.r-ear-l { left: 3px; }
+.r-ear-r { left: 9px; }
 .r-tail {
   position: absolute;
-  width: 7px; height: 7px;
+  width: 10px; height: 10px;
   background: rgba(255,255,255,0.85);
   border-radius: 50%;
-  bottom: 5px; left: 0;
+  bottom: 6px; left: 0;
 }
 
 .r-y  { color: #E8B820; }
@@ -364,17 +364,17 @@ function clickRabbit(id) {
 .r-ear-l::after, .r-ear-r::after {
   content: '';
   position: absolute;
-  width: 2px; height: 6px;
+  width: 3px; height: 8px;
   border-radius: 50%;
-  top: 2px; left: 1px;
+  top: 3px; left: 1px;
 }
 .r-head::after {
   content: '';
   position: absolute;
-  width: 3px; height: 3px;
+  width: 4px; height: 4px;
   background: #1a1a1a;
   border-radius: 50%;
-  top: 3px; right: 2px;
+  top: 4px; right: 2px;
 }
 
 .r-y  { animation: run-y  9s  ease-in-out infinite; }
