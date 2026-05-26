@@ -34,9 +34,13 @@
 import { ref, onMounted } from 'vue'
 import { thankYouImages } from '../data/birthdayImages.js'
 
+const props = defineProps({
+  viewOnly: { type: Boolean, default: false }
+})
 defineEmits(['close'])
 
 const SEEN_KEY = 'birthday_seen_images'
+const MY_CARD_KEY = 'birthday_my_card_idx'
 
 function pickImage() {
   if (thankYouImages.length === 1) return thankYouImages[0]
@@ -47,10 +51,16 @@ function pickImage() {
   const idx = pool[Math.floor(Math.random() * pool.length)]
   seen.push(idx)
   localStorage.setItem(SEEN_KEY, JSON.stringify(seen))
+  localStorage.setItem(MY_CARD_KEY, String(idx))
   return thankYouImages[idx]
 }
 
-const image = pickImage()
+function getMyCard() {
+  const idx = parseInt(localStorage.getItem(MY_CARD_KEY) ?? '0', 10)
+  return thankYouImages[idx] ?? thankYouImages[0]
+}
+
+const image = props.viewOnly ? getMyCard() : pickImage()
 const shown = ref(false)
 
 onMounted(() => setTimeout(() => { shown.value = true }, 50))
