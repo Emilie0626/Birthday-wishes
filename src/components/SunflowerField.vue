@@ -148,7 +148,22 @@ const quotes = [
   '所以你睡了没',
   '不能做普通朋友',
   'Someone in the crowd could be the one you need to know.',
-  '爱已无法回答所有的问题。'
+  '爱已无法回答所有的问题。',
+  'Te quiero lento',
+  '要感谢低谷赋予了生命高潮的意义',
+  '孩子别紧张 生活不是竞技场',
+  '鹰 不可以留恋地平线',
+  '偶尔也会想家 但我知道我需要变得更强大',
+  '我告诉自己抛下心中所有的牵绊 只要做我想做的不能够轻易地认命',
+  '穿过幽暗的岁月 也曾感到彷徨',
+  '没有什么能够阻挡 你对自由的向往',
+  'Sans fleurs, sans fards, Écrire de nos sangs l\'histoire',
+  '她就像一朵蓓蕾 满怀希望',
+  '全部都交给我 虽然我身在远方',
+  'Und wenn wir zusammenstehen Kann unser Licht nie untergehen',
+  '最重要是有好心态 上帝才会对你更青睐',
+  'Посидим с товарищами у костра',
+  '短暂的胜利无所谓 只想要记住你的笑脸'
 ]
 
 const bubbleText = ref('')
